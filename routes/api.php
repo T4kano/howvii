@@ -1,7 +1,11 @@
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
+<?php
 
-Route::apiResource('property_types', PostController::class);
-Route::apiResource('properties', PostController::class);
-Route::apiResource('customers', PostController::class);
-Route::apiResource('payments', PostController::class);
+use App\Http\Controllers\ReportController;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
+
+Route::get('/reports', [ReportController::class, 'loadAll']);
