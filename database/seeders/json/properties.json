@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Luxury Apartment",
+        "description": "A beautiful luxury apartment in the city center.",
+        "address": "123 Main St, Cityville",
+        "property_type_id": 1
+    },
+    {
+        "name": "Cozy Cottage",
+        "description": "A cozy cottage in the countryside.",
+        "address": "456 Country Rd, Farmtown",
+        "property_type_id": 2
+    },
+    {
+        "name": "Sunny Apartment",
+        "description": "A modern apartment with lots of sunlight.",
+        "address": "12 Main St, Downtown",
+        "property_type_id": 1
+    },
+    {
+        "name": "Beach House",
+        "description": "Spacious house with ocean view.",
+        "address": "89 Ocean Drive, Seaside",
+        "property_type_id": 2
+    },
+    {
+        "name": "Urban Loft",
+        "description": "Stylish loft in the heart of the city.",
+        "address": "34 Market St, City Center",
+        "property_type_id": 3
+    },
+    {
+        "name": "Mountain Cabin",
+        "description": "Rustic cabin surrounded by nature.",
+        "address": "77 Pine Trail, Highland",
+        "property_type_id": 2
+    },
+    {
+        "name": "Luxury Villa",
+        "description": "Elegant villa with private pool.",
+        "address": "101 Palm Ave, Beverly Hills",
+        "property_type_id": 3
+    },
+    {
+        "name": "Suburban Home",
+        "description": "Comfortable family home in a quiet neighborhood.",
+        "address": "250 Maple Lane, Greenfield",
+        "property_type_id": 1
+    }
+]

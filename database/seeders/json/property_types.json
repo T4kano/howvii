@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Apartment",
+        "description": "A residential unit in a building."
+    },
+    {
+        "name": "House",
+        "description": "A standalone residential building."
+    },
+    {
+        "name": "Condo",
+        "description": "A privately owned unit in a building."
+    }
+]
