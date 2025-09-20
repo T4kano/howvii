@@ -9,3 +9,6 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/reports', [ReportController::class, 'loadAll']);
+Route::get('/totalsByProperty', [ReportController::class, 'totalsByProperty']);
+Route::get('/totalsByMonth', [ReportController::class, 'totalsByMonth']);
+Route::get('/typeShare', [ReportController::class, 'typeShare']);
