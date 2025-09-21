@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Property;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class ReportController extends Controller
 {
+    /**
+     * Relacionamento entre todas as tabelas
+     * @return \Illuminate\Support\Collection<int, \stdClass>
+     */
     public function loadAll()
     {
         $rows = DB::table('payments as p')
@@ -30,7 +33,10 @@ class ReportController extends Controller
         return collect($rows);
     }
 
-    // a) Lista com id de cada imóvel e soma de todos os pagamentos
+    /**
+     * Soma de pagamento por imóvel
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function totalsByProperty()
     {
         $data = $this->loadAll()->groupBy('property_id')
@@ -41,13 +47,16 @@ class ReportController extends Controller
                     'value' => $items->sum('payment_amount'),
                 ];
             })
-            ->values(); // força array sequencial
+            ->values();
 
         return response()->json($data);
     }
 
 
-    // b) Lista com cada mês/ano e o total de vendas no período
+    /**
+     * Total por mês/ano
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function totalsByMonth()
     {
         $data = $this->loadAll()
@@ -66,7 +75,10 @@ class ReportController extends Controller
     }
 
 
-    // c) Lista com cada tipo de imóvel e seu percentual no total de vendas (quantitativo)
+    /**
+     * Percentual por tipo de imóvel
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function typeShare()
     {
         $all = $this->loadAll();
@@ -76,6 +88,7 @@ class ReportController extends Controller
             ->map(function ($items, $type) use ($totalSales) {
                 $count = $items->count();
                 $percent = $totalSales > 0 ? round(($count / $totalSales) * 100, 2) : 0;
+
                 return [
                     'type'    => $type,
                     'percent' => (float) $percent,
